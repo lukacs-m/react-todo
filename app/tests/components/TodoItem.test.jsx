@@ -21,7 +21,7 @@ describe('TodoItem', () => {
         var $el = $(ReactDOM.findDOMNode(todoItem));
 
         TestUtils.Simulate.click($el[0]);
-        
+
         expect(spy).toHaveBeenCalledWith(199);
     });
 });
