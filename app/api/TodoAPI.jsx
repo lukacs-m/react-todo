@@ -18,5 +18,27 @@ module.exports = {
         }
 
         return $.isArray(todos) ? todos : [];
+    },
+    filterTodoItems: function (todos, showCompleted, searchText) {
+        var filteredTodos = todos;
+
+        filteredTodos = filteredTodos.filter((todoItem) => {
+            return !todoItem.completed || showCompleted;
+        });
+
+        filteredTodos = filteredTodos.filter((todoItem) => {
+             return searchText.length === 0 || todoItem.text.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
+        });
+
+        filteredTodos.sort((a, b) => {
+            if (!a.completed && b.completed){
+                return -1;
+            } else if (a.completed && !b.completed){
+                return 1;
+            } else
+                return 0;
+        });
+
+        return filteredTodos;
     }
 };
