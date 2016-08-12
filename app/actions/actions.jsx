@@ -18,6 +18,13 @@ export var addTodoItem = (text) => {
     };
 };
 
+export var addTodos = (todos) => {
+    return{
+        type: 'ADD_TODOS',
+        todos
+    };
+};
+
 export var toggleTodoItem = (id) => {
     return{
         type: 'TOGGLE_TODO_ITEM',
