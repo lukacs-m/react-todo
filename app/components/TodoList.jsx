@@ -7,7 +7,6 @@ export var TodoList = React.createClass({
     render: function () {
         var {todos, showCompleted, searchText} = this.props;
         var renderTodoItems = () => {
-            console.log(todos);
             var filteredTodos = TodoAPI.filterTodoItems(todos, showCompleted, searchText);
             if (filteredTodos.length === 0) {
                 return(

@@ -15,7 +15,6 @@ export var TodoItem = React.createClass({
             if(completed) {
                 message = 'Completed ';
                 timestamp = completedAt;
-                console.log()
             }
 
             return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');

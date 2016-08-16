@@ -7,6 +7,7 @@ try{
         databaseURL: process.env.DATABASE_URL,
         storageBucket: process.env.STORAGE_BUCKET,
     };
+
     firebase.initializeApp(config);
 } catch(e) {
 

@@ -57,13 +57,12 @@ export var startAddTodos = () => {
 
             Object.keys(todos).forEach((todoId) => {
                 todosArray.push({
-                   id: todoId,
+                    id: todoId,
                     ...todos[todoId]
                 });
             });
             dispatch(addTodos(todosArray));
         });
-
 
 
     };
@@ -91,13 +90,26 @@ export var startToggleTodoItem = (id, completed) => {
     };
 };
 
+export var login = (uid) => {
+    return {
+        type: 'LOGIN',
+        uid
+    };
+};
+
 export var startLogin = () => {
     return (dispatch, getState) => {
-      return firebase.auth().signInWithPopup(githubProvider).then((result) =>{
+        return firebase.auth().signInWithPopup(githubProvider).then((result) => {
             console.log('auth worked', result);
         }).catch((error) => {
             console.log("Unable to auth", error);
         });
+    };
+};
+
+export var logout = () => {
+    return {
+        type: 'LOGOUT'
     };
 };
 
