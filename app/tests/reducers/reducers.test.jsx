@@ -69,6 +69,23 @@ describe('Reducers', () => {
 
         });
 
+        it('should delete todo item', () => {
+            var todo = {
+                id:1,
+                text: 'test',
+                completed: false,
+                completedAt : undefined
+            };
+            var action = {
+                type: 'DELETE_TODO_ITEM',
+                id: todo.id,
+
+            };
+            var res = reducers.todosReducer(df([todo]), df(action));
+
+            expect(res.length).toEqual(0);
+        });
+
         it('should add  existing todos', () => {
             var todos = [{
                 id:1,

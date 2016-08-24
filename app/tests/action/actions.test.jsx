@@ -172,5 +172,24 @@ describe('Actions', () => {
             }).catch(done);
         });
 
+        it('should delete todo and dispatch DELETE_TODO_ITEM', (done) => {
+            const store = createMockStore({auth:{uid}});
+            const action = actions.startDeleteTodoItem(testTodoRef.key);
+
+            store.dispatch(action).then(() => {
+                const mockActions = store.getActions();
+
+                expect(mockActions[0]).toInclude({
+                    type: 'DELETE_TODO_ITEM',
+                    id: testTodoRef.key,
+                });
+
+                expect(mockActions.length).toEqual(0);
+
+                done();
+            }).catch(done());
+        });
+
+
     });
 });

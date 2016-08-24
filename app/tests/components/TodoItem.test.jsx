@@ -18,11 +18,11 @@ describe('TodoItem', () => {
             text: 'test',
             completed:true
         };
-        var action = actions.startToggleTodoItem(todoDataTest.id, !todoDataTest.completed)
+        var action = actions.startToggleTodoItem(todoDataTest.id, !todoDataTest.completed);
 
         var spy = expect.createSpy();
         var todoItem = TestUtils.renderIntoDocument(<TodoItem {...todoDataTest} dispatch={spy}/>);
-        var $el = $(ReactDOM.findDOMNode(todoItem));
+        var $el = $(ReactDOM.findDOMNode(todoItem.refs.selectCompleted));
 
         TestUtils.Simulate.click($el[0]);
 

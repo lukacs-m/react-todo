@@ -21,16 +21,21 @@ export var TodoItem = React.createClass({
         };
 
         return (
-            <div  className={todoClassName} onClick={() => {
-                {/*this.props.onToggle(id);*/}
-                dispatch(actions.startToggleTodoItem(id, !completed));
-            }}>
-                <div>
-                    <input type="checkbox" checked={completed}/>
-                </div>
-                <div>
-                    <p>{text}</p>
-                    <p className="todo-subtext">{renderDate()}</p>
+            <div>
+                <div  className={todoClassName}>
+                    <div>
+                        <input ref="selectCompleted" type="checkbox" checked={completed}  onClick={() => {
+                            {/*this.props.onToggle(id);*/}
+                            dispatch(actions.startToggleTodoItem(id, !completed));
+                        }}/>
+                    </div>
+                    <div>
+                        <p>{text}</p>
+                        <p className="todo-subtext">{renderDate()}</p>
+                    </div>
+                    <button className="button alert tiny delete-todoitem" onClick={() => {
+                        dispatch(actions.startDeleteTodoItem(id));
+                    }}>X</button>
                 </div>
             </div>
         );

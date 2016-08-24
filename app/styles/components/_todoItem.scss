@@ -16,6 +16,7 @@
   &:hover{
     background:#f0f0f0;
   }
+  >:last-child { margin-left: auto; }
 }
 
 .todo-subtext{
@@ -27,4 +28,8 @@
     color: $light-color;
     text-decoration: line-through;
   }
+}
+
+.delete-todoitem{
+  justify-content: flex-end;
 }

@@ -94,6 +94,24 @@ export var startToggleTodoItem = (id, completed) => {
     };
 };
 
+export var deleteTodoItem = (id) => {
+    return {
+        type: 'DELETE_TODO_ITEM',
+        id
+    };
+};
+
+export var startDeleteTodoItem = (id) => {
+    return (dispatch, getState) => {
+        var uid = getState().auth.uid;
+        var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+
+        return todoRef.remove().then(() => {
+            dispatch(deleteTodoItem(id))
+        });
+    };
+};
+
 export var login = (uid) => {
     return {
         type: 'LOGIN',
